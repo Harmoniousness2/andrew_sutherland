@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-weight: 500;
+        }
+
+        .nav-pill:hover, .nav-pill.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .pdf-download-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pdf-download-btn:hover {
+            background: linear-gradient(135deg, #218838, #1ea085);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #667eea;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 2s ease-out;
+            width: 0;
+        }
+
+        .detail-section {
+            margin-top: 30px;
+        }
+
+        .detail-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .experience-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .view-all-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .view-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .experience-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .experience-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 2fr;
+            gap: 10px;
+            padding: 20px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+
+        .experience-row:last-child {
+            border-bottom: none;
+        }
+
+        .experience-row.header {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+			border: 0px
+        }
+
+        .experience-row:not(.header):hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .exp-period {
+            font-weight: 500;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .exp-role {
+            font-weight: 600;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .exp-company {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .exp-focus {
+            color: #777;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item:last-child:before {
+            display: none;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 25px;
+            z-index: 1;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-period {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-role {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            color: #777;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .experience-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 15px 20px;
+            }
+
+            .experience-row.header {
+                display: none;
+            }
+
+            .experience-row:not(.header) {
+                border-left: 4px solid #667eea;
+            }
+
+            .exp-period:before {
+                content: "Period: ";
+                font-weight: 600;
+                color: #333;
+            }
+
+            .exp-role:before {
+                content: "Role: ";
+                font-weight: 600;
+                color: #333;
+            }
+
+            .exp-company:before {
+                content: "Company: ";
+                font-weight: 600;
+                color: #333;
+            }
+
+            .exp-focus:before {
+                content: "Focus: ";
+                font-weight: 600;
+                color: #333;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-dot {
+                align-self: flex-start;
+                margin-bottom: 15px;
+            }
+
+            .timeline-item:before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Andrew Sutherland</h1>
+            <p>Quantitative Developer | Front Office Specialist</p>
+            <div class="nav-pills">
+                <div class="nav-pill active" data-section="overview">Overview</div>
+                <div class="nav-pill" data-section="finance">Finance</div>
+                <div class="nav-pill" data-section="coding">Technology</div>
+                <div class="nav-pill" data-section="management">Management</div>
+                <button class="pdf-download-btn" onclick="downloadPDF()">
+                    📄 View PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Overview Section -->
+            <div class="section active" id="overview">
+                <h2>Professional Overview</h2>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: #666; margin-bottom: 30px;">
+Experienced front-office quantitative technology developer and macro specialist.  Delivery focused, I’ve worked in a wide range of roles, most recently as a senior department lead and architect at Tudor, redesigning key parts of their pricing and risk infrastructure.  Expert in products across Fixed Income, Rates, FX and Equities, linear and vol
+                </p>
+                
+                <!-- Recent Experience Section -->
+                <div style="margin: 40px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                        <h3 style="font-size: 1.8rem; color: #333; font-weight: 300;">Recent Experience</h3>
+                        <button class="view-all-btn" onclick="openJobHistoryModal()">
+                            View Complete History →
+                        </button>
+                    </div>
+                    
+                    <div class="experience-table">
+                        <div class="experience-row header">
+                            <div class="exp-period">Period</div>
+                            <div class="exp-role">Role</div>
+                            <div class="exp-company">Company</div>
+                            <div class="exp-focus">Key Focus</div>
+                        </div>
+                        <div class="experience-row" data-aos="fade-up">
+                            <div class="exp-period">11/2022 - Present</div>
+                            <div class="exp-role">Lead Architect, Pricing Analytics</div>
+                            <div class="exp-company">Tudor Investment Corporation</div>
+                            <div class="exp-focus">Re-design of front-office pricing and risk</div>
+                        </div>
+                        <div class="experience-row" data-aos="fade-up" data-aos-delay="100">
+                            <div class="exp-period">4/2018 - 10/2022</div>
+                            <div class="exp-role">Lead Engineer, Macro Front Office</div>
+                            <div class="exp-company">Balyasny Asset Management</div>
+                            <div class="exp-focus">Rapid build-out of new rates pricing framework</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview-grid">
+                    <div class="skill-card" data-navigate="finance">
+                        <h3>
+                            <div class="skill-icon">📊</div>
+                            Finance & Analysis
+                        </h3>
+                        <p>Building pricing and risk models across asset classes</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85%"></div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Rates & Fixed Income</span>
+                            <span class="tech-tag">FX</span>
+                            <span class="tech-tag">Equities</span>
+                            <span class="tech-tag">Commodities</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-navigate="coding">
+                        <h3>
+                            <div class="skill-icon">💻</div>
+                            Technology
+                        </h3>
+                        <p>Languages and Systems</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90%"></div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">C++ / C</span>
+                            <span class="tech-tag">Python / R</span>
+                            <span class="tech-tag">C#</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card" data-navigate="management">
+                        <h3>
+                            <div class="skill-icon">🎯</div>
+                            Leadership
+                        </h3>
+                        <p>Team leadership, strategic decision-making, and system architecture</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="88%"></div>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Leadership</span>
+                            <span class="tech-tag">Strategy</span>
+                            <span class="tech-tag">Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Section -->
+            <div class="section" id="finance">
+                <button class="back-btn" data-back="overview">← Back to Overview</button>
+                <div class="detail-section">
+                    <h2>📊 Finance & Analysis Expertise</h2>
+                    
+                    <div class="experience-item">
+                        <h4>Rates</h4>
+                        <p>&bull; Tudor (2022-present): built (using OpenGamma) front office multi-currency pricing and risk system.  Multi-curve build, fx curves, cross-currency (including basis and turns).</p>
+                        <p>&bull; Balyasny (2018-2022): similar front-office pricing and risk, using in-house code-base.  Wrote curve fitter and many other core components.</p>
+                        <p>&bull; Citi (1996-2001): lead developer, front-office rates pricing for London desk.  Junior trader, structured rates/long-term FX.</p>
+                        <p>&bull; Citi (2001-2002): junior trader, structured rates/long-term FX.</p>
+                        <p>&bull; Expert in building yield curve models - familiar with most conventions.  Have implemented non-linear fitters directly (Gauss-Newton, Levenberg-Marquardt) for efficiency.  Familiar with the trade-offs in risk reporting between bump-and-reprice, AAD and forward methods.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>FX</h4>
+                        <p>&bull; Tudor (2022-present): designed and implemented cross-curreny FX curves, fitted to forwards and basis swaps.  </p>
+                        <p>&bull; HSBC (2006-2011): led team to design and roll-out real-time margining for (new) FX PB.  Real-time pricing and risk.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Equities/Commodities</h4>
+                        <p>&bull; JP Morgan (2014-2016):  equity delta-one, project manager for improved risk reporting system.</p>
+                        <p>&bull; Barclays (2002-2003):  commodity derivatives - energy futures options technology.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>Risk</h4>
+                        <p>&bull; Tudor/Balyasny: implemented bucketed risk reporting for yield-curve products using delta-waves.</p>
+                        <p>&bull; HSBC: wrote VaR reporting frameworks, both return and VCV.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Coding Section -->
+            <div class="section" id="coding">
+                <button class="back-btn" data-back="overview">← Back to Overview</button>
+                <div class="detail-section">
+                    <h2>💻 Coding & Technology Expertise</h2>
+                    <div class="experience-item">
+                        <h4>Java</h4>
+                        <p>&bull; Tudor (2018-2022): worked with team to plan simplification of massive code-base.  Moving to Java-21. Spring-boot, avoiding micro-services.</p>
+                        <p>&bull; JP Morgan (2014-2016): managed projects on large code-base, focusing on maintainability.</p>
+                        <p>&bull; Morgan Stanley (2012-2014): developed code for fixed-income business.</p>
+                        <p>&bull; HSBC (2006-2011): many projects for FX desk, as well as FX prime-brokerage, also heavily (early) Spring users.</p>
+                        <p>&bull; TDD has become key for most tasks.  Simple architectures usually includes immutable data shared between components.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>C and C++</h4>
+                        <p>&bull; Balyasny (2018-2022): starting with large code-base in C, migrated to C++.  STL, multi-threading, C++ 17.</p>
+                        <p>&bull; Citi (1996-2002): similarly, C code base migrating to early C++.</p>
+                        <p>&bull; Generally keep to simple, maintainable code, avoid meta-programming, code for thread-safety and follow effective C++ rules.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Python/R</h4>
+                        <p>&bull; Tudor: use mostly as utility code, but python is a key platform for interfacing with the new system via a schema-based API.</p>
+                        <p>&bull; Balyasny: utility code, but also built python systems for automating curve-building, multi-process for high throughput from BPIPE.</p>
+                        <p>&bull; Credit Suisse: a fair amount of R code to compute regulatory exposures.  Pandas-like data-tables.</p>
+                        <p>&bull; JP Morgan: utility code, again using multiprocess approaches to speed analysis tasks</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>C#</h4>
+                        <p>&bull; Tudor: designed the Excel API for our system, using Excel DNA in C#.</p>
+                        <p>&bull; Balyasny: much of the position feed was in C#, and this was a core part of our delivery.</p>
+                        <p>&bull; I've done hobby-coding in C# as well - I have a basic appreciation of the language, but have not used it for large systems.</p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Management Section -->
+            <div class="section" id="management">
+                <button class="back-btn" data-back="overview">← Back to Overview</button>
+                <div class="detail-section">
+                    <h2>🎯 Selected Management & Leadership Expertise</h2>
+                    <div class="experience-item">
+                        <h4>Tudor</h4>
+                        <p>&bull; Head of Pricing Analytics (2022-2025):  led team of 12 developers across Europe and US.  Ran stakeholder groups, organized work-flow, status reporting and project management.</p>
+                        <p>&bull; Worked to ensure tranparency, so stakeholders could agree with our deliveries, and to keep projects on track.  Pushed for agile/Kanban approach.</p>
+                        <p>&bull; An enthusiastic team-builder, I try to ensure that each team member is used to their full capacity and is given as much responsibility as possible.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>HSBC</h4>
+                        <p>&bull; Lead Architect and Developer, FX PB</p>
+                        <p>&bull; Worked from business start-up to go-live on FX PB core pricing and risk.  Developed specs with stakeholders (including risk and upper management), hired team, and went live in a short time-frame.</p>
+                        <p>&bull; This project taught me the value of close co-ordination, both within a team and between the team and stakeholders.  When successful, this can turbo-charge productivity.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h4>Vichara (2003-2006)</h4>
+                        <p>&bull; Partner in small global consultancy.  Worked on multiple projects with 40+ staff in India.  Mentored and guided teams to create solutions for a variety of clients.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Job History Modal -->
+        <div id="jobHistoryModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Complete Career History</h2>
+                    <button class="close-btn" onclick="closeJobHistoryModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">1</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2023 - Present</div>
+                            <div class="timeline-role">Senior Technical Lead</div>
+                            <div class="timeline-company">Tech Innovation Corp</div>
+                            <div class="timeline-description">
+                                Leading a cross-functional team of 12 developers in building next-generation web applications. 
+                                Responsible for technical architecture decisions, code reviews, and mentoring junior developers. 
+                                Implemented CI/CD pipelines that reduced deployment time by 60%.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot">2</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2021 - 2023</div>
+                            <div class="timeline-role">Financial Analyst</div>
+                            <div class="timeline-company">Global Finance Ltd</div>
+                            <div class="timeline-description">
+                                Developed comprehensive financial models for risk assessment and portfolio optimization. 
+                                Created automated reporting systems that saved 20+ hours weekly. Managed investment 
+                                portfolios worth $50M+ and provided strategic recommendations to senior management.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot">3</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2019 - 2021</div>
+                            <div class="timeline-role">Project Manager</div>
+                            <div class="timeline-company">Strategic Solutions Inc</div>
+                            <div class="timeline-description">
+                                Led multiple high-impact projects with budgets exceeding $2M. Implemented Agile methodologies 
+                                that improved team productivity by 35%. Coordinated cross-departmental initiatives and 
+                                maintained stakeholder relationships across various business units.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot">4</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2017 - 2019</div>
+                            <div class="timeline-role">Software Developer</div>
+                            <div class="timeline-company">Digital Solutions Co</div>
+                            <div class="timeline-description">
+                                Developed and maintained web applications using React, Node.js, and MongoDB. 
+                                Collaborated with UX designers to create intuitive user interfaces. 
+                                Optimized application performance resulting in 40% faster load times.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot">5</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2015 - 2017</div>
+                            <div class="timeline-role">Business Analyst</div>
+                            <div class="timeline-company">Corporate Analytics Ltd</div>
+                            <div class="timeline-description">
+                                Analyzed business processes and identified optimization opportunities. 
+                                Created detailed documentation and process flows. Worked closely with IT teams 
+                                to implement system improvements and data integration solutions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot">6</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">2013 - 2015</div>
+                            <div class="timeline-role">Junior Financial Consultant</div>
+                            <div class="timeline-company">Finance Partners Group</div>
+                            <div class="timeline-description">
+                                Provided financial advice to small and medium businesses. Prepared financial statements, 
+                                tax returns, and budget forecasts. Assisted senior consultants with complex financial 
+                                analysis and client presentations.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            setTimeout(() => {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width;
+                });
+            }, 500);
+
+            // Navigation functionality
+            const navPills = document.querySelectorAll('.nav-pill');
+            const sections = document.querySelectorAll('.section');
+
+            navPills.forEach(pill => {
+                pill.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-section');
+                    showSection(targetSection);
+                    
+                    // Update active nav pill
+                    navPills.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Skill card navigation
+            const skillCards = document.querySelectorAll('.skill-card[data-navigate]');
+            skillCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-navigate');
+                    showSection(targetSection);
+                    
+                    // Update active nav pill
+                    navPills.forEach(p => p.classList.remove('active'));
+                    document.querySelector(`[data-section="${targetSection}"]`).classList.add('active');
+                });
+            });
+
+            // Back button functionality
+            const backButtons = document.querySelectorAll('.back-btn[data-back]');
+            backButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('data-back');
+                    showSection(targetSection);
+                    
+                    // Update active nav pill
+                    navPills.forEach(p => p.classList.remove('active'));
+                    document.querySelector(`[data-section="${targetSection}"]`).classList.add('active');
+                });
+            });
+
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            }
+
+            // Add hover effects to tech tags
+            const techTags = document.querySelectorAll('.tech-tag');
+            techTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // Modal functions
+        function openJobHistoryModal() {
+            document.getElementById('jobHistoryModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJobHistoryModal() {
+            document.getElementById('jobHistoryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('jobHistoryModal');
+            if (event.target === modal) {
+                closeJobHistoryModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeJobHistoryModal();
+            }
+        });
+
+        // PDF Download Function
+        async function downloadPDF() {
+		  const url = "https://www.dropbox.com/scl/fi/x0v81f3gjjxcey6gj32j7/Andrew-Sutherland-CV.pdf?rlkey=719plwy0ahbz0ratzflmuve8c&e=2&dl=0"
+		  // Open URL in a new tab
+  		  window.open(url, 'ahs cv');
+         }			
+    </script>
+</body>
+</html>
