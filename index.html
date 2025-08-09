@@ -567,6 +567,7 @@
                 <div class="nav-pill" data-section="finance">Finance</div>
                 <div class="nav-pill" data-section="coding">Technology</div>
                 <div class="nav-pill" data-section="management">Management</div>
+                <div class="nav-pill" data-section="education">Education</div>
                 <button class="pdf-download-btn" onclick="downloadPDF()">
                     📄 View PDF
                 </button>
@@ -578,7 +579,7 @@
             <div class="section active" id="overview">
                 <h2>Professional Overview</h2>
                 <p style="font-size: 1.1rem; line-height: 1.7; color: #666; margin-bottom: 30px;">
-Experienced front-office quantitative technology developer and macro specialist.  Delivery focused, I’ve worked in a wide range of roles, most recently as a senior department lead and architect at Tudor, redesigning key parts of their pricing and risk infrastructure.  Expert in products across Fixed Income, Rates, FX and Equities, linear and vol
+<em>Experienced front-office quantitative technology developer and macro specialist.  Delivery focused, I’ve worked in a wide range of roles, most recently as a senior department lead and architect at Tudor, redesigning key parts of their pricing and risk infrastructure.  Expert in products across Fixed Income, Rates, FX and Equities, linear and vol.</em>
                 </p>
                 
                 <!-- Recent Experience Section -->
@@ -672,7 +673,9 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <h2>📊 Finance & Analysis Expertise</h2>
                     
                     <div class="experience-item">
-                        <h4>Rates</h4>
+                        <h4>Rates & Fixed Income</h4>
+						<p><em>Experience working with (and modelling) linear rates, swaps: single and cross-currency, basis swaps, yield curve construction (multi-curve fitting, splines, cross-currency basis, turns and convexity).  Government bonds, bond futures, interest rate futures.  Swaptions, vol calibration, futures-options.</em></p>
+						<br/>
                         <p>&bull; Tudor (2022-present): built (using OpenGamma) front office multi-currency pricing and risk system.  Multi-curve build, fx curves, cross-currency (including basis and turns).</p>
                         <p>&bull; Balyasny (2018-2022): similar front-office pricing and risk, using in-house code-base.  Wrote curve fitter and many other core components.</p>
                         <p>&bull; Citi (1996-2001): lead developer, front-office rates pricing for London desk.  Junior trader, structured rates/long-term FX.</p>
@@ -682,18 +685,24 @@ Experienced front-office quantitative technology developer and macro specialist.
 
                     <div class="experience-item">
                         <h4>FX</h4>
+						<p><em>FX forwards and options, building fx curves, modelling basis spreads.</em></p>
+						<br/>
                         <p>&bull; Tudor (2022-present): designed and implemented cross-curreny FX curves, fitted to forwards and basis swaps.  </p>
                         <p>&bull; HSBC (2006-2011): led team to design and roll-out real-time margining for (new) FX PB.  Real-time pricing and risk.</p>
                     </div>
 
                     <div class="experience-item">
                         <h4>Equities/Commodities</h4>
+						<p><em>Delta-one and vanilla options.  Listed options, dividend modelling. </em></p>
+						<br/>
                         <p>&bull; JP Morgan (2014-2016):  equity delta-one, project manager for improved risk reporting system.</p>
                         <p>&bull; Barclays (2002-2003):  commodity derivatives - energy futures options technology.</p>
                     </div>
 
                     <div class="experience-item">
                         <h4>Risk</h4>
+						<p><em>Rate risk modelling: external perturbation, AAD and analytic.  Delta-wave methods for rate buckets.  Efficient VaR techniques.</em></p>
+						<br/>
                         <p>&bull; Tudor/Balyasny: implemented bucketed risk reporting for yield-curve products using delta-waves.</p>
                         <p>&bull; HSBC: wrote VaR reporting frameworks, both return and VCV.</p>
                     </div>
@@ -708,6 +717,8 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <h2>💻 Coding & Technology Expertise</h2>
                     <div class="experience-item">
                         <h4>Java</h4>
+ 						<p><em>System development, focus on efficient code design.  Experienced with several multithreading paradigms, with a preference for immutable data and pure operations.</em></p>
+						<br/>
                         <p>&bull; Tudor (2018-2022): worked with team to plan simplification of massive code-base.  Moving to Java-21. Spring-boot, avoiding micro-services.</p>
                         <p>&bull; JP Morgan (2014-2016): managed projects on large code-base, focusing on maintainability.</p>
                         <p>&bull; Morgan Stanley (2012-2014): developed code for fixed-income business.</p>
@@ -716,12 +727,15 @@ Experienced front-office quantitative technology developer and macro specialist.
                     </div>
                     <div class="experience-item">
                         <h4>C and C++</h4>
+						<p><em>Focus on simple, maintainable code, avoid meta-programming, code for thread-safety and follow effective C++ rules.</em></p>
+						<br/>
                         <p>&bull; Balyasny (2018-2022): starting with large code-base in C, migrated to C++.  STL, multi-threading, C++ 17.</p>
                         <p>&bull; Citi (1996-2002): similarly, C code base migrating to early C++.</p>
-                        <p>&bull; Generally keep to simple, maintainable code, avoid meta-programming, code for thread-safety and follow effective C++ rules.</p>
                     </div>
                     <div class="experience-item">
                         <h4>Python/R</h4>
+						<p><em>Python is a key analysis tool for end-users: I've become versed in pandas, numpy/scipy and similar tools, as well as interface techniques to allow pandas to communicate with C++ and/or Java backend services.</em></p>
+						<br/>
                         <p>&bull; Tudor: use mostly as utility code, but python is a key platform for interfacing with the new system via a schema-based API.</p>
                         <p>&bull; Balyasny: utility code, but also built python systems for automating curve-building, multi-process for high throughput from BPIPE.</p>
                         <p>&bull; Credit Suisse: a fair amount of R code to compute regulatory exposures.  Pandas-like data-tables.</p>
@@ -729,6 +743,8 @@ Experienced front-office quantitative technology developer and macro specialist.
                     </div>
                     <div class="experience-item">
                         <h4>C#</h4>
+						<p><em>C# has become invaluable for end-user interfacing.  Currently a proponent of Excel-DNA - which allows us to quickly build functional interfaces for all our services.</em></p>
+						<br/>
                         <p>&bull; Tudor: designed the Excel API for our system, using Excel DNA in C#.</p>
                         <p>&bull; Balyasny: much of the position feed was in C#, and this was a core part of our delivery.</p>
                         <p>&bull; I've done hobby-coding in C# as well - I have a basic appreciation of the language, but have not used it for large systems.</p>
@@ -761,6 +777,26 @@ Experienced front-office quantitative technology developer and macro specialist.
                     
                 </div>
             </div>
+			
+            <!-- Education Section -->
+            <div class="section" id="education">
+                <button class="back-btn" data-back="overview">← Back to Overview</button>
+                <div class="detail-section">
+                    <h2>🎓  Education</h2>
+                    
+                    <div class="experience-item">
+                        <h4>Swarthmore College, Swarthmore, PA, USA</h4>
+						<p><em>Bachelor's Degree, 1985 in Physics and Computer Science</em></p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h4>University of Virginia, Charlottesville, VA, USA</h4>
+						<p><em>JD (Doctor of Law), 1995</em></p>
+                    </div>
+
+                </div>
+            </div>
+			
         </div>
 
         <!-- Job History Modal -->
@@ -774,13 +810,17 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">1</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2023 - Present</div>
-                            <div class="timeline-role">Senior Technical Lead</div>
-                            <div class="timeline-company">Tech Innovation Corp</div>
+                            <div class="timeline-period">11/2022 - Present</div>
+                            <div class="timeline-role">Lead Architect, Pricing Analytics</div>
+                            <div class="timeline-company">Tudor Investment Corporation, London</div>
                             <div class="timeline-description">
-                                Leading a cross-functional team of 12 developers in building next-generation web applications. 
-                                Responsible for technical architecture decisions, code reviews, and mentoring junior developers. 
-                                Implemented CI/CD pipelines that reduced deployment time by 60%.
+							<p><em>Head of Pricing Analytics Platform strategic re-architecture, responsible for rebuilding the core pricing and risk systems at Tudor.  Hands-on Quant/Developer, architect, team leader and project manager.  Java (90%) with C# and python.</em></p>
+							<br/>
+							<p>&bull; Driver and architect behind modernization plans, a multi-year project to streamline and transform Tudor’s pricing platform.    Key components include distributable pricing models, record-and-replay parameters, and maximal transparency allowing feeds to Excel/python as well as key applications.</p>
+							<p>&bull; Expert in curve-building (both single and cross-currency), pricing and risk of swaps, basis swaps, vol products (swaptions/fx), fixed income.</p>
+							<p>&bull; Involved in all aspects of development, including coding, advising on pricing and risk approaches, development tools and methods, and code critique. (Java/C#/Python).  </p>
+							<p>&bull; As department head, I have also been involved in managing a substantial number of critical systems for pricing and risk in the Tudor legacy stack.  Main stakeholders include Middle Office, Risk Management, and PMs. </p>
+							<p>&bull; Project management tasks have revolved around the triage and prioritization of requests, managing delivery, and regular stakeholder meetings to course-correct.  Kanban approach with long-term goals overlaid</p>
                             </div>
                         </div>
                     </div>
@@ -788,13 +828,15 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">2</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2021 - 2023</div>
-                            <div class="timeline-role">Financial Analyst</div>
-                            <div class="timeline-company">Global Finance Ltd</div>
+                            <div class="timeline-period">4/2018 - 10/2022</div>
+                            <div class="timeline-role">Lead Engineer, Macro Front Office</div>
+                            <div class="timeline-company">Balyasny Asset Management, London</div>
                             <div class="timeline-description">
-                                Developed comprehensive financial models for risk assessment and portfolio optimization. 
-                                Created automated reporting systems that saved 20+ hours weekly. Managed investment 
-                                portfolios worth $50M+ and provided strategic recommendations to senior management.
+							<p><em>Helped develop all key components in BAM’s Macro post-trade pricing and risk platform, ‘Turbo’.  From a code-base in C, we modernized and industrialized what was a spread-sheet toolkit and transformed it into an enterprise pricing and risk management system.   Rates, Fixed Income & FX, C/C++/Python.</em></p>
+							<br/>
+							<p>&bull; Lead developer in a global team of 5-6.  Functional lead of the Turbo workstream, a global team of 9, worked to co-ordinate and prioritize development and support.</p>
+							<p>&bull; Led re-engineering projects for curve-fitting, market data distribution, and interest rate risk (using forward-wave approach), among many other projects.</p>
+							<p>&bull; Curve expert, personally rewrote core yield curve fitting code, implemented new features, added cross-currency support and built systems for automated curve fitting.</p>
                             </div>
                         </div>
                     </div>
@@ -802,13 +844,11 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">3</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2019 - 2021</div>
-                            <div class="timeline-role">Project Manager</div>
-                            <div class="timeline-company">Strategic Solutions Inc</div>
+                            <div class="timeline-period">2/2017 - 2/2018</div>
+                            <div class="timeline-role">IT Business Analyst (contract)</div>
+                            <div class="timeline-company">UBS, London</div>
                             <div class="timeline-description">
-                                Led multiple high-impact projects with budgets exceeding $2M. Implemented Agile methodologies 
-                                that improved team productivity by 35%. Coordinated cross-departmental initiatives and 
-                                maintained stakeholder relationships across various business units.
+							<p><em>Worked with trading businesses, front and back-office IT teams on MIFID II compliance</em></p>
                             </div>
                         </div>
                     </div>
@@ -816,13 +856,11 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">4</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2017 - 2019</div>
-                            <div class="timeline-role">Software Developer</div>
-                            <div class="timeline-company">Digital Solutions Co</div>
+                            <div class="timeline-period">5/2016 - 11/2016</div>
+                            <div class="timeline-role">R Developer/Business Analyst (contract)</div>
+                            <div class="timeline-company">Credit Suisse, London</div>
                             <div class="timeline-description">
-                                Developed and maintained web applications using React, Node.js, and MongoDB. 
-                                Collaborated with UX designers to create intuitive user interfaces. 
-                                Optimized application performance resulting in 40% faster load times.
+							<p><em>Worked in Equity Risk Management developing exposure tools for regulatory exposure reporting using pandas-like R data tables.</em></p>
                             </div>
                         </div>
                     </div>
@@ -830,13 +868,11 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">5</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2015 - 2017</div>
-                            <div class="timeline-role">Business Analyst</div>
-                            <div class="timeline-company">Corporate Analytics Ltd</div>
+                            <div class="timeline-period">5/2014 - 5/2016</div>
+                            <div class="timeline-role">Senior BA/Project Manager</div>
+                            <div class="timeline-company">JP Morgan, London</div>
                             <div class="timeline-description">
-                                Analyzed business processes and identified optimization opportunities. 
-                                Created detailed documentation and process flows. Worked closely with IT teams 
-                                to implement system improvements and data integration solutions.
+							<p><em>Ran team to develop improved risk reporting for equity swaps business. (Java/Python)</em></p>
                             </div>
                         </div>
                     </div>
@@ -844,13 +880,66 @@ Experienced front-office quantitative technology developer and macro specialist.
                     <div class="timeline-item">
                         <div class="timeline-dot">6</div>
                         <div class="timeline-content">
-                            <div class="timeline-period">2013 - 2015</div>
-                            <div class="timeline-role">Junior Financial Consultant</div>
-                            <div class="timeline-company">Finance Partners Group</div>
+                            <div class="timeline-period">4/2012 - 4/2014</div>
+                            <div class="timeline-role">Senior Developer</div>
+                            <div class="timeline-company">Morgan Stanley, London</div>
                             <div class="timeline-description">
-                                Provided financial advice to small and medium businesses. Prepared financial statements, 
-                                tax returns, and budget forecasts. Assisted senior consultants with complex financial 
-                                analysis and client presentations.
+							<p><em>Senior developer in front-office fixed income IT.  Responsible for re-engineering a considerable number of systems and creating new functionality for cash traders.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">7</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">6/2006 - 1/2011</div>
+                            <div class="timeline-role">Development Manager, FX IT</div>
+                            <div class="timeline-company">HSBC, London</div>
+                            <div class="timeline-description">
+							<p><em>Multiple roles over 6 years, from hands-on front office Quant/Developer (FX/Java) to running a team to develop real-time FX risk reporting for the PB business.  Lead architect for new FX PB Margin Engine covering cash, forwards and vanilla options.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">8</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">4/2003 - 6/2006</div>
+                            <div class="timeline-role">Partner, Project Manager</div>
+                            <div class="timeline-company">Vichara Technologies</div>
+                            <div class="timeline-description">
+							<p><em>Vichara is a finance-focused IT consultancy.   In my role I oversaw multiple development streams, working with 40+ staff in India.  Clients included banks, hedge funds, and service providers.  Supervised between 8 to 14 staff members.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">9</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">8/2002 - 4/2003</div>
+                            <div class="timeline-role">Team Lead, Commodities IT</div>
+                            <div class="timeline-company">Barclays, London</div>
+                            <div class="timeline-description">
+							<p><em>Led a front office team to implement exotic commodity derivatives pricing and booking framework.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">10</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">1/2001 - 8/2002</div>
+                            <div class="timeline-role">Derivatives Trader</div>
+                            <div class="timeline-company">Citigroup, London</div>
+                            <div class="timeline-description">
+							<p><em>Trader of hybrid, multi-asset derivatives and structured products.</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">11</div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">6/1996 - 12/2000</div>
+                            <div class="timeline-role">Quant/Developer</div>
+                            <div class="timeline-company">Citibank, London, New York</div>
+                            <div class="timeline-description">
+							<p><em>Responsible for Citibank London's exotic rates pricing and risk management system. Wrote major parts of all system components, from curves to models to user interface (C Library with Excel front-end).</em></p>
                             </div>
                         </div>
                     </div>
@@ -959,7 +1048,7 @@ Experienced front-office quantitative technology developer and macro specialist.
 
         // PDF Download Function
         async function downloadPDF() {
-		  const url = "https://www.dropbox.com/scl/fi/x0v81f3gjjxcey6gj32j7/Andrew-Sutherland-CV.pdf?rlkey=719plwy0ahbz0ratzflmuve8c&e=2&dl=0"
+		  const url = "andrew_h_sutherland.pdf"
 		  // Open URL in a new tab
   		  window.open(url, 'ahs cv');
          }			
