@@ -28,6 +28,13 @@
         .header {
             text-align: center;
             color: white;
+            margin-bottom: 5px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .topheader {
+            text-align: center;
+            color: white;
             margin-bottom: 50px;
             animation: fadeInDown 1s ease-out;
         }
@@ -40,6 +47,19 @@
         }
 
         .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .topheader h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .topheader p {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 30px;
@@ -312,7 +332,7 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-			border: 0px
+		    border: 0px;
         }
 
         .experience-row:not(.header):hover {
@@ -559,7 +579,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <div class="topheader">
             <h1>Andrew Sutherland</h1>
             <p>Quantitative Developer | Front Office Specialist</p>
             <div class="nav-pills">
