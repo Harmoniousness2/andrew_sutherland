@@ -187,6 +187,33 @@
             color: var(--text-soft);
         }
 
+        /* ── Key Capabilities ── */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .cap-item {
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--navy);
+            padding: 8px 12px;
+        }
+
+        .cap-title {
+            font-weight: 600;
+            font-size: 8.5pt;
+            color: var(--navy);
+            margin-bottom: 3px;
+        }
+
+        .cap-body {
+            font-size: 8pt;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+
         /* ── Education ── */
         .edu-item {
             margin-bottom: 6px;
@@ -232,7 +259,7 @@
     <!-- Header -->
     <div class="cv-header">
         <h1>Andrew H. Sutherland</h1>
-        <div class="subtitle">Quantitative Developer &nbsp;&middot;&nbsp; AI/LLM Tooling &nbsp;&middot;&nbsp; Front Office Specialist</div>
+        <div class="subtitle">Quantitative Development &nbsp;&middot;&nbsp; AI-Augmented Delivery &nbsp;&middot;&nbsp; Front-Office Technology Leadership</div>
         <div class="contact-line">
             <span>92 Blake Road, London N11 2AL</span>
             <span>(+44) 07751 148806</span>
@@ -243,7 +270,28 @@
 
     <!-- Summary -->
     <div class="summary">
-        <p>Experienced front-office quantitative developer and macro specialist. Delivery focused, I've worked in a wide range of roles across major banks and hedge funds. Currently a Technical Desk Quant at Tudor Investment Corporation, where I design and build a proprietary fixed-income analytics platform and develop LLM/agentic tooling for the desk. Expert in products across Fixed Income, Rates, FX and Equities, linear and vol.</p>
+        <p>Senior front-office quant-developer with nearly 30 years across rates, FX, equities and vol at major banks and hedge funds. Currently sole developer on a $2B AUM fixed-income desk, where I architect a proprietary analytics platform (C#/Excel/Web) and build LLM integrations for in-house tools. I use agentic coding as my primary development workflow, which now drives the majority of new feature delivery. Experienced leading teams of up to 12 across multiple geographies, with a track record of shipping complex systems on time. Equally effective as a hands-on architect or a technical leader bridging trading desks and engineering teams.</p>
+    </div>
+
+    <!-- Key Capabilities -->
+    <h2>Key Capabilities</h2>
+    <div class="capabilities-grid">
+        <div class="cap-item">
+            <div class="cap-title">AI-Augmented Development</div>
+            <div class="cap-body">Agentic coding as primary development workflow; Anthropic API integration for natural-language interfaces to proprietary systems; practical LLM deployment in a regulated front-office environment.</div>
+        </div>
+        <div class="cap-item">
+            <div class="cap-title">Quantitative Analytics</div>
+            <div class="cap-body">Yield curve construction (single &amp; cross-currency), swap/swaption pricing &amp; risk, FX options, VaR, real-time analytics with parallel computation.</div>
+        </div>
+        <div class="cap-item">
+            <div class="cap-title">Systems Architecture</div>
+            <div class="cap-body">Greenfield platform design in C#/.NET, large-scale Java (Spring Boot), high-performance C/C++, Python/R for analysis and automation.</div>
+        </div>
+        <div class="cap-item">
+            <div class="cap-title">Technical Leadership</div>
+            <div class="cap-body">Teams of up to 12 across EU/US; stakeholder management, Kanban workflow, multi-year modernisation programmes; architecture governance.</div>
+        </div>
     </div>
 
     <!-- Experience -->
