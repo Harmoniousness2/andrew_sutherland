@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Andrew H. Sutherland — CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #1C1C1C;
+            --text-mid: #444;
+            --text-soft: #6B6560;
+            --navy: #1B3A5C;
+            --border: #D9D3CB;
+            --bg: #F7F4EF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 9.5pt;
+            line-height: 1.55;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 16mm 18mm 16mm 18mm;
+        }
+
+        /* ── Header ── */
+        .cv-header {
+            border-bottom: 1.5px solid var(--navy);
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .cv-header h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 26pt;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .cv-header .subtitle {
+            font-size: 8pt;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            margin-bottom: 8px;
+        }
+
+        .contact-line {
+            font-size: 8.5pt;
+            color: var(--text-soft);
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-line span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── Section heading ── */
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            margin-top: 16px;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        /* ── Summary ── */
+        .summary p {
+            color: var(--text-mid);
+            font-size: 9.5pt;
+            line-height: 1.6;
+        }
+
+        /* ── Experience entries ── */
+        .job {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .job:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .job-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .job-period {
+            font-size: 8pt;
+            color: var(--text-soft);
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        .job-company {
+            font-size: 8.5pt;
+            color: var(--navy);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .job-summary {
+            font-size: 8.5pt;
+            color: var(--text-soft);
+            font-style: italic;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .job ul {
+            padding-left: 12px;
+            margin: 0;
+        }
+
+        .job ul li {
+            font-size: 8.5pt;
+            color: var(--text-mid);
+            line-height: 1.55;
+            margin-bottom: 2px;
+        }
+
+        /* ── Skills grid ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+        }
+
+        .skill-row {
+            display: flex;
+            gap: 6px;
+            align-items: baseline;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            font-size: 8.5pt;
+            color: var(--text);
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .skill-value {
+            font-size: 8.5pt;
+            color: var(--text-soft);
+        }
+
+        /* ── Education ── */
+        .edu-item {
+            margin-bottom: 6px;
+        }
+
+        .edu-item .edu-degree {
+            font-weight: 600;
+            font-size: 9pt;
+            color: var(--text);
+        }
+
+        .edu-item .edu-school {
+            font-size: 8.5pt;
+            color: var(--text-soft);
+        }
+
+        /* ── Print ── */
+        @media print {
+            body { background: white; }
+            .page {
+                width: 100%;
+                margin: 0;
+                padding: 12mm 16mm;
+                min-height: unset;
+                box-shadow: none;
+            }
+            h2 { page-break-after: avoid; }
+            .job { page-break-inside: avoid; }
+        }
+
+        @media screen {
+            body { padding: 20px 0 40px; }
+            .page {
+                box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+                border: 1px solid var(--border);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Header -->
+    <div class="cv-header">
+        <h1>Andrew H. Sutherland</h1>
+        <div class="subtitle">Quantitative Developer &nbsp;&middot;&nbsp; AI/LLM Tooling &nbsp;&middot;&nbsp; Front Office Specialist</div>
+        <div class="contact-line">
+            <span>92 Blake Road, London N11 2AL</span>
+            <span>(+44) 07751 148806</span>
+            <span>andrew.h.sutherland@gmail.com</span>
+            <span>US / UK Dual Citizen</span>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary">
+        <p>Experienced front-office quantitative developer and macro specialist. Delivery focused, I've worked in a wide range of roles across major banks and hedge funds. Currently a Technical Desk Quant at Tudor Investment Corporation, where I design and build a proprietary fixed-income analytics platform and develop LLM/agentic tooling for the desk. Expert in products across Fixed Income, Rates, FX and Equities, linear and vol.</p>
+    </div>
+
+    <!-- Experience -->
+    <h2>Experience</h2>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Technical Desk Quant</span>
+            <span class="job-period">1/2026 &ndash; Present</span>
+        </div>
+        <div class="job-company">Tudor Investment Corporation, London</div>
+        <div class="job-summary">Sole quant-developer on a $2B AUM fixed-income desk (team of 4). Designing, building and maintaining a proprietary analytics platform, and developing LLM/agentic tooling for the desk.</div>
+        <ul>
+            <li>Designed and built a greenfield fixed-income analytics platform in C#, with Excel, desktop and web interfaces &mdash; 100% sole-designed, with strict architectural control.</li>
+            <li>Platform covers curve-building, historical pricing, and a wide range of fixed-income analytics, with fast parallel computations enabling interactive tools.</li>
+            <li>Developing in-house LLM/agentic tooling using the Anthropic API. Heavy user of agentic coding (Claude Code), which now drives the majority of new feature delivery.</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Head of Pricing Analytics / Front-Office Architecture</span>
+            <span class="job-period">11/2022 &ndash; 12/2025</span>
+        </div>
+        <div class="job-company">Tudor Investment Corporation, London</div>
+        <div class="job-summary">Head of Pricing Analytics Platform (to 6/2025), then Head of Front-Office Architecture. Responsible for rebuilding the core pricing and risk systems at Tudor. Hands-on Quant/Developer, architect, team leader and project manager. Java (90%) with C# and Python.</div>
+        <ul>
+            <li>Driver and architect behind a multi-year modernisation of Tudor's pricing platform. Key components include distributable pricing models, record-and-replay parameters, and maximal transparency with feeds to Excel/Python and key applications.</li>
+            <li>Expert in curve-building (single and cross-currency), pricing and risk of swaps, basis swaps, vol products (swaptions/FX), fixed income.</li>
+            <li>Led team of 12 developers across Europe and US. Ran stakeholder groups, organised workflow, status reporting and project management. Kanban approach with long-term goals overlaid.</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Lead Engineer, Macro Front Office</span>
+            <span class="job-period">4/2018 &ndash; 10/2022</span>
+        </div>
+        <div class="job-company">Balyasny Asset Management, London</div>
+        <div class="job-summary">Helped develop all key components in BAM's Macro post-trade pricing and risk platform, &lsquo;Turbo&rsquo;. Modernised and industrialised a C codebase into an enterprise pricing and risk management system. Rates, Fixed Income &amp; FX, C/C++/Python.</div>
+        <ul>
+            <li>Lead developer in a global team of 5&ndash;6. Functional lead of the Turbo workstream (global team of 9).</li>
+            <li>Led re-engineering projects for curve-fitting, market data distribution, and interest rate risk (forward-wave approach).</li>
+            <li>Personally rewrote core yield curve fitting code; added cross-currency support and built systems for automated curve fitting.</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">IT Business Analyst (contract) &mdash; MIFID II</span>
+            <span class="job-period">2/2017 &ndash; 2/2018</span>
+        </div>
+        <div class="job-company">UBS, London</div>
+        <div class="job-summary">Worked with trading businesses, front and back-office IT teams on MIFID II compliance.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">R Developer / Business Analyst (contract)</span>
+            <span class="job-period">5/2016 &ndash; 11/2016</span>
+        </div>
+        <div class="job-company">Credit Suisse, London</div>
+        <div class="job-summary">Equity Risk Management &mdash; developing exposure tools for regulatory reporting using pandas-like R data tables.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Senior BA / Project Manager, Equity Finance IT</span>
+            <span class="job-period">5/2014 &ndash; 5/2016</span>
+        </div>
+        <div class="job-company">J.P. Morgan, London</div>
+        <div class="job-summary">Ran team to develop improved risk reporting for equity swaps business. (Java/Python)</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Senior Developer, Fixed Income IT (contract)</span>
+            <span class="job-period">4/2012 &ndash; 4/2014</span>
+        </div>
+        <div class="job-company">Morgan Stanley, London</div>
+        <div class="job-summary">Front-office fixed income; re-engineered a substantial number of systems and created new functionality for cash traders.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Development Manager, FX IT</span>
+            <span class="job-period">6/2006 &ndash; 1/2011</span>
+        </div>
+        <div class="job-company">HSBC, London</div>
+        <div class="job-summary">Multiple roles over 6 years, from hands-on front office Quant/Developer (FX/Java) to running a team developing real-time FX risk reporting for the PB business. Lead architect for the new FX PB Margin Engine covering cash, forwards and vanilla options.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Partner, Project Manager</span>
+            <span class="job-period">4/2003 &ndash; 6/2006</span>
+        </div>
+        <div class="job-company">Vichara Technologies, London / Delhi</div>
+        <div class="job-summary">Finance-focused IT consultancy. Oversaw multiple development streams with 40+ staff in India. Clients included banks, hedge funds and service providers. Supervised 8&ndash;14 staff members.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Team Lead, Commodity Derivatives IT</span>
+            <span class="job-period">8/2002 &ndash; 4/2003</span>
+        </div>
+        <div class="job-company">Barclays Capital, London</div>
+        <div class="job-summary">Led a front-office team to implement exotic commodity derivatives pricing and booking framework.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Derivatives Trader</span>
+            <span class="job-period">1/2001 &ndash; 8/2002</span>
+        </div>
+        <div class="job-company">Citigroup, London</div>
+        <div class="job-summary">Trader of hybrid, multi-asset derivatives and structured products.</div>
+    </div>
+
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Quant / Developer, Interest Rates</span>
+            <span class="job-period">6/1996 &ndash; 12/2000</span>
+        </div>
+        <div class="job-company">Citibank / Salomon Smith Barney, London &amp; New York</div>
+        <div class="job-summary">Responsible for Citibank London's exotic rates pricing and risk management system. Wrote major parts of all system components, from curves to models to user interface (C with Excel front-end).</div>
+    </div>
+
+    <!-- Skills -->
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-row">
+            <span class="skill-label">C# (.NET)</span>
+            <span class="skill-value">Primary language; greenfield analytics platform, Excel-DNA, desktop &amp; web interfaces</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">Java</span>
+            <span class="skill-value">Large-scale systems; Spring Boot, Java 21, multithreading</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">C / C++</span>
+            <span class="skill-value">High-performance systems; STL, C++17, thread-safe design</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">Python / R</span>
+            <span class="skill-value">Analysis, automation; pandas, numpy/scipy, multiprocess</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">LLM / Agentic</span>
+            <span class="skill-value">Anthropic API; in-house tooling, agentic coding (Claude Code)</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">Fixed Income</span>
+            <span class="skill-value">Rates, swaps, swaptions, yield curve construction, cross-currency</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">FX &amp; Equities</span>
+            <span class="skill-value">FX forwards/options, delta-one, vanilla options, VaR</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-label">Leadership</span>
+            <span class="skill-value">Teams up to 12; stakeholder management, Kanban, architecture</span>
+        </div>
+    </div>
+
+    <!-- Education -->
+    <h2>Education</h2>
+    <div class="edu-item">
+        <div class="edu-degree">J.D. (Doctor of Law), 1995</div>
+        <div class="edu-school">University of Virginia, Charlottesville, VA, USA</div>
+    </div>
+    <div class="edu-item">
+        <div class="edu-degree">B.A. Physics &amp; Computer Science, 1985</div>
+        <div class="edu-school">Swarthmore College, Pennsylvania, USA</div>
+    </div>
+
+</div>
+</body>
+</html>
